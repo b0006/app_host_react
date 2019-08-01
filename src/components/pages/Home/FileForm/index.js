@@ -4,7 +4,7 @@ import * as d3 from 'd3';
 import parserSvgPath from '../../../../services/parser';
 
 const FileForm = () => {
-  const [absoluteCoord, setAbsoluteCoord] = useState(false);
+  const [isAbsoluteCoord, setIsAbsoluteCoord] = useState(true);
   const [inputFile, setInputFile] = useState(null);
   const [fileImg, setFileImg] = useState(null);
 
@@ -22,7 +22,7 @@ const FileForm = () => {
     const filePath = URL.createObjectURL(file);
     const svgDocument = await d3.xml(filePath);
     const svgElem = document.importNode(svgDocument.documentElement, true);
-    parserSvgPath(svgElem, absoluteCoord);
+    parserSvgPath(svgElem, isAbsoluteCoord);
   }
 
   const onFileChange = (files) => {
@@ -49,8 +49,8 @@ const FileForm = () => {
           <label>Абсолютные координаты</label>
           <input
             type="checkbox"
-            checked={absoluteCoord}
-            onChange={() => setAbsoluteCoord(!absoluteCoord)}
+            checked={isAbsoluteCoord}
+            onChange={() => setIsAbsoluteCoord(!isAbsoluteCoord)}
           />
         </div>
       </div>

@@ -30,7 +30,7 @@ const getStyleColors = (svgElem) => {
   };
 }
 
-const parserSvgPath = (svgElem, absoluteCoord) => {
+const parserSvgPath = (svgElem, isAbsoluteCoord) => {
   const arPathTag = svgElem.getElementsByTagName('path');
 
   const arData = [...arPathTag].map(path => {
@@ -58,7 +58,7 @@ const parserSvgPath = (svgElem, absoluteCoord) => {
     })
   }
 
-  decodeData(arData, absoluteCoord);
+  decodeData(arData, isAbsoluteCoord);
 }
 
 export default parserSvgPath;
