@@ -33,7 +33,7 @@ const FileForm = () => {
     if (inputFile) {
       getSvgDocumentFile(inputFile);
     }
-  }, [inputFile]);
+  }, [inputFile, getSvgDocumentFile]);
 
   return (
     <div>
